@@ -14,12 +14,15 @@ namespace SistemaWebEmpleado.Controllers
         private readonly EmpleadoContext _context;
 
         public EmpleadoController(EmpleadoContext context) { _context = context; }
+
+        // GET: /empleado
         public IActionResult Index()
         {
             return View(_context.Empleados.ToList());
         }
 
         [HttpGet]
+        //GET: /empleado/create
         public IActionResult Create()
         {
             Empleado empleado = new Empleado();
@@ -64,6 +67,7 @@ namespace SistemaWebEmpleado.Controllers
 
         [HttpGet]
         [ActionName("TraerUno")]
+        //GET: /empleado/traeruno/id
         public IActionResult TraerUno(int id)
         {
             Empleado empleado = _context.Empleados.Find(id);
@@ -107,18 +111,6 @@ namespace SistemaWebEmpleado.Controllers
             }
             return RedirectToAction("Index");
         }
-
-
-
-
-        //[HttpGet]
-        //public IActionResult Delete(int id)
-        //{
-        //    var person = _context.Empleados.SingleOrDefault(m => m.EmpleadoId == id);
-        //    _context.Empleados.Remove(person);
-        //    _context.SaveChanges();
-        //    return RedirectToAction(nameof(Index));
-        //}
 
         [HttpGet("/empleado/Editar/{EmpleadoId}")]
         public ActionResult Editar(int id)
