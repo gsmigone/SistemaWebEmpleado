@@ -1,0 +1,42 @@
+﻿@model SistemaWebEmpleado.Models.Empleado
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+@section sidebar {
+    Administración de empleados.
+}
+
+<div>
+    @using (Html.BeginForm("Editar", "Empleado", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(model => model.DNI)
+            @Html.EditorFor(model => model.DNI)
+            @Html.ValidationMessageFor(model => model.DNI)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Nombre)
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Apellido)
+            @Html.EditorFor(model => model.Apellido)
+            @Html.ValidationMessageFor(model => model.Apellido)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Titulo)
+            @Html.EditorFor(model => model.Titulo)
+            @Html.ValidationMessageFor(model => model.Titulo)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Legajo)
+            @Html.EditorFor(model => model.Legajo)
+            @Html.ValidationMessageFor(model => model.Legajo)
+        </p>
+        <input type="submit" value="Modificar" />
+        @Html.ActionLink("Regresar al indice", "Index", "Empleado")
+    }
+</div>

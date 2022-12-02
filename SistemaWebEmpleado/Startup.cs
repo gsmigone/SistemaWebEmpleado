@@ -29,7 +29,7 @@ namespace SistemaWebEmpleado
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EmpleadoContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -39,8 +39,8 @@ namespace SistemaWebEmpleado
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
+            //context.Database.EnsureDeleted();
+            //context.Database.EnsureCreated();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -51,7 +51,7 @@ namespace SistemaWebEmpleado
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Empleado}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

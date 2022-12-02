@@ -7,6 +7,7 @@ namespace SistemaWebEmpleado.Models
 {
     public class Empleado
     {
+        [Key]
         public int EmpleadoId { get; set; }
         [Required]
         public string Nombre { get; set; }

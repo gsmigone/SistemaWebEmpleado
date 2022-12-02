@@ -112,33 +112,29 @@ namespace SistemaWebEmpleado.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet("/empleado/Editar/{EmpleadoId}")]
-        public ActionResult Editar(int id)
+        //GET: empleado/editar
+        [HttpGet]
+        [ActionName("Editar")]
+        public IActionResult Editar(int id)
         {
             Empleado empleado = _context.Empleados.Find(id);
-            if (empleado == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return View("Editar", empleado);
-            }
+
+            if (empleado == null) return NotFound();
+            return View("Editar", empleado);
         }
 
+        //POST: empleado/editar
         [HttpPost]
-        public ActionResult Editar(Empleado empleado)
+        public IActionResult Editar(Empleado empleado)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("Editar", empleado);
-            }
-            else
+            if (ModelState.IsValid)
             {
                 _context.Entry(empleado).State = EntityState.Modified;
                 _context.SaveChanges();
-                return View("Index", empleado);
+                return RedirectToAction("Index");
             }
+            return View("Editar");
+
         }
 
 
