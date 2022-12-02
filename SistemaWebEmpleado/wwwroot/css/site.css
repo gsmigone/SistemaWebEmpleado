@@ -1,0 +1,36 @@
+﻿body {
+}
+
+#header {
+    background-color: lightseagreen;
+    color: white;
+    padding: 5px;
+    text-align: right;
+}
+
+#menu {
+    background-color: yellowgreen;
+    color: white;
+    padding: 5px;
+    
+}
+
+#sideBar {
+    margin-right: 10px;
+    padding: 10px;
+    text-align: right;
+}
+
+#content {
+    float: left;
+    margin: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9em;
+}
+
+#footer {
+    text-align: center;
+    color: white;
+    background-color: lightseagreen;
+    clear: both;
+}
